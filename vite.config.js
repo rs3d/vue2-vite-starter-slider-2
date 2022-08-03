@@ -21,9 +21,6 @@ export default defineConfig({
       },
     ],
   },
-  esbuild: {
-    platform: 'browser',
-  },
   build: {
     brotliSize: false, // unsupported in StackBlitz
     minify: false,
