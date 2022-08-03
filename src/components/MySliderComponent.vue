@@ -1,15 +1,15 @@
 <script lang="ts">
-import { Component, Vue, Mixins } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 // import VueSlider from 'vue-slider-component'
 
 @Component({
   components: {
     VueSlider: () =>
-      import('vue-slider-component').then((result) => {
-        console.log(result.default)
+      import('vue-slider-component').then((module) => {
+        console.log(module.default)
         //debugger
-        return result?.default
-        //return result
+        return module?.default
+        //return module
       }),
   },
 })
