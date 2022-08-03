@@ -1,15 +1,16 @@
 <script lang="ts">
 import { Component, Vue, Mixins } from 'vue-property-decorator'
-/// import VueSlider from 'vue-slider-component'
-
-const VueSlider = () => import('vue-slider-component')
-
-const a: number = '##################'
-console.log(a)
+// import VueSlider from 'vue-slider-component'
 
 @Component({
   components: {
-    VueSlider,
+    VueSlider: () =>
+      import('vue-slider-component').then((result) => {
+        console.log(result.default)
+        //debugger
+        return result?.default
+        //return result
+      }),
   },
 })
 export default class MySliderComponent extends Vue {

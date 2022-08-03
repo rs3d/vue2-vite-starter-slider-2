@@ -20,15 +20,20 @@ export default defineConfig({
         replacement: 'vue-slider-component/dist/vue-slider-component.umd.js',
       },
     ],
-    dedupe: ['vue'],
   },
   esbuild: {
     platform: 'browser',
   },
   build: {
-    target: 'es2015',
     brotliSize: false, // unsupported in StackBlitz
     minify: false,
     sourcemap: 'inline',
+    commonjsOptions: {
+      /**
+       * Setting to make prod-build working with vue-slider-component
+       * https://github.com/rollup/plugins/tree/master/packages/commonjs#requirereturnsdefault
+       **/
+      requireReturnsDefault: true,
+    },
   },
 })
